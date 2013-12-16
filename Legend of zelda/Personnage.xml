@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Personnage>
+  <Mario>
+    <Droite>
+      <Grandeur>27</Grandeur>
+      <Largeur>10</Largeur>
+      <X>1</X>
+      <Y>119</Y>
+    </Droite>
+    
+    
+    
+    
+  </Mario>
+  
+  
+  
+  
+  
+</Personnage>
