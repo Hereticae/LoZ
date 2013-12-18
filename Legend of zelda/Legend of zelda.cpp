@@ -6,7 +6,7 @@
 			 													   *
  *******************************************************************/
 #pragma once
-#include "Personnage.h"
+#include "Map.h"
 
 using namespace std;
 
@@ -32,6 +32,8 @@ int main()
 
 	sf::RectangleShape rectangle;
 	
+	carte vue;
+	
 	//texture.loadFromImage(img);
 	//Link._sprite.setTexture(texture);
 	//Link._sprite.setTextureRect(sf::IntRect(1,119,15,27));
@@ -49,12 +51,14 @@ int main()
                 window.close();
         }
 		Link.deplacement();
-		rectangle.setPosition(
+		//vue.deplacement(Link);
         // Clear screen
         window.clear();
+		//window.setView(vue._vue);
 		window.draw(spriteMap);
         // Draw the sprite
         window.draw(Link._sprite);
+		window.draw(Link._rectangle);
         // Update the window
         window.display();
     }

@@ -14,6 +14,13 @@ void Entite::init(sf::Image img, sf::IntRect rect, sf::Vector2f position)
 	_texture.loadFromImage(img);
 	_sprite.setTexture(_texture);
 	_sprite.setTextureRect(rect);
-	_sprite.setScale(2,2);
+	_sprite.setScale(1,1);
 	_sprite.setPosition(position);
+}
+
+void Entite::setEntite(sf::Vector2f position, sf::Vector2f origin, sf::IntRect carree)
+{
+	_sprite.setPosition(position);
+	_sprite.setOrigin(origin);
+	_sprite.setTextureRect(carree);
 }

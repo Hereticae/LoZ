@@ -23,8 +23,7 @@ class Entite
 	sf::Sprite		_sprite;
 
 	void init(sf::Image img, sf::IntRect, sf::Vector2f);
-	void deplacement(
-
+	void setEntite(sf::Vector2f Position, sf::Vector2f origin, sf::IntRect carree);
 
 
 };

@@ -12,21 +12,22 @@
 Personnage::Personnage()
 {
 	_pos1 = _pos2  = _dep1 = _dep2 = _animCount = _animAtt = 0;
-	keyUsed1 = keyUsed2 = attaque = false;
+	keyUsed1 = keyUsed2 = _attaque = false;
+	_rectangle.setFillColor(sf::Color::Yellow);
 	Pinit();
 }
 
 void Personnage::deplacement()
 {
 	_velocite = sf::Vector2f();
-	if(attaque == false)
+	if(_attaque == false)
 	{
 		if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
 			|| sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
 		{
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
-					bouge( 3, sf::Vector2f(3,0));
+				bouge( 3, sf::Vector2f(3,0));
 			}
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			{
@@ -46,7 +47,7 @@ void Personnage::deplacement()
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			attaque = true;
+			_attaque = true;
 		}
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
@@ -66,22 +67,42 @@ void Personnage::deplacement()
 		if(_animAtt >= 6)
 		{
 			_animAtt = 0;
-			attaque = false;
+			_attaque = false;
 		}
 		else
 		{
+			_rectangle.setPosition( _position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
+			_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
 			_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
-
 			_sprite.setOrigin(animAtt[_pos1].at(_animAtt)._decale);
 			_sprite.setPosition(_position);
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			{
-				_animAtt++;
-			}
+			_animAtt++;
 		}
 	}
 	
 }
+
+void Personnage::attaque()
+{
+	if(_animAtt >= 6)
+	{
+		_animAtt = 0;
+		_attaque = false;
+	}
+	else
+	{
+		_rectangle.setPosition(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top);
+		_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
+		_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
+		_sprite.setOrigin(animAtt[_pos1].at(_animAtt)._decale);
+		_sprite.setPosition(_position);
+		_animAtt++;
+	}
+
+
+
+}
+
 
 void Personnage::bouge(int pos, sf::Vector2f vecteur)
 {
@@ -120,15 +141,23 @@ void Personnage::lectureDeplacement(string nomFichier[])
 void Personnage::lectureAttaque(string nomFichier[])
 {
 	ifstream entree;
-	int numero, left, top, width, height, decalex, decaley;
+	int numero, left, top, width, height, decalex, decaley, bodyLeft, bodyTop, bodyWidth, bodyHeight, swordLeft, swordTop, swordWidth, swordHeight;
 	
 	for(int nb = 0; nb < 4; nb++)
 	{
 		entree.open(nomFichier[nb]);
 		while(!entree.eof())
 		{
-			entree >> numero >> left >> top >> width >> height >> decalex >> decaley;
-			animAtt[nb].push_back(allo(numero, left, top, width, height, decalex, decaley));
+			entree	>> numero >> left >> top >> width >> height >> decalex >> decaley 
+					>> bodyLeft >> bodyTop >> bodyWidth >> bodyHeight >> swordLeft 
+					>> swordTop >> swordWidth >> swordHeight;
+			bodyLeft -= left;
+			bodyTop -= top;
+			swordLeft -= left;
+			swordTop -= top;
+			animAtt[nb].push_back(allo(numero, sf::IntRect (left, top, width, height) 
+				, sf::Vector2f (decalex, decaley), sf::FloatRect(bodyLeft, bodyTop, bodyWidth, bodyHeight)
+				, sf::FloatRect (swordLeft, swordTop, swordWidth, swordHeight)));
 		}
 		entree.close();
 	}

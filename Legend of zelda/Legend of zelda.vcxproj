@@ -68,10 +68,12 @@
   <ItemGroup>
     <ClCompile Include="Entite.cpp" />
     <ClCompile Include="Legend of zelda.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Personnage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entite.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Personnage.h" />
   </ItemGroup>
   <ItemGroup>
