@@ -1,24 +1,40 @@
-﻿La génération a démarré 2013-12-17 19:28:51.
-     1>Projet "C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Legend of zelda\Legend of zelda.vcxproj" sur le nœud 2 (build cible(s)).
+﻿La génération a démarré 2013-12-17 20:19:18.
+     1>Projet "C:\Users\Maxime\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" sur le nœud 2 (build cible(s)).
      1>InitializeBuildStatus:
          Création de "Debug\Legend of zelda.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Entite.cpp
-         Entite.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Personnage.cpp
+         Personnage.cpp
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.h(27): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.h(27): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.h(30): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.h(30): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.h(30): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.h(30): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(169): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(169): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(169): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(169): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(169): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(169): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(170): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(170): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(170): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+     1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(170): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Debug\Legend of zelda.exe" /NOLOGO "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Legend of zelda.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Debug\Legend of zelda.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Debug\Legend of zelda.lib" /MACHINE:X86 Debug\Entite.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.exe" /NOLOGO "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Legend of zelda.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.lib" /MACHINE:X86 Debug\Entite.obj
          "Debug\Legend of zelda.obj"
          Debug\Map.obj
          Debug\Personnage.obj
-         LINK : C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Debug\Legend of zelda.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
-         Legend of zelda.vcxproj -> C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Debug\Legend of zelda.exe
+         LINK : C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
+         Legend of zelda.vcxproj -> C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.exe
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Debug\Legend of zelda.exe;#1" /manifest "Debug\Legend of zelda.exe.intermediate.manifest"
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.exe;#1" /manifest "Debug\Legend of zelda.exe.intermediate.manifest"
        FinalizeBuildStatus:
          Suppression du fichier "Debug\Legend of zelda.unsuccessfulbuild".
          Mise à jour de l'horodatage "Debug\Legend of zelda.lastbuildstate".
-     1>Génération du projet "C:\Users\Maxime\Documents\École Document\Session 3\Structure de données\Legend of zelda\Legend of zelda\Legend of zelda\Legend of zelda.vcxproj" terminée (build cible(s)).
+     1>Génération du projet "C:\Users\Maxime\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" terminée (build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:01.57
+Temps écoulé 00:00:01.66

@@ -62,7 +62,8 @@ class Personnage : public Entite
 	vector<allo> anim[4],
 				 animAtt[4];
 
-	sf::RectangleShape _rectangle;
+	sf::RectangleShape	_rectangle,
+						_sword;
 
 	sf::Thread arc;
 

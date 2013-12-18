@@ -13,7 +13,8 @@ Personnage::Personnage()
 {
 	_pos1 = _pos2  = _dep1 = _dep2 = _animCount = _animAtt = 0;
 	keyUsed1 = keyUsed2 = _attaque = false;
-	_rectangle.setFillColor(sf::Color::Yellow);
+	_rectangle.setFillColor(sf::Color (0,255,255, 153));
+	_sword.setFillColor(sf::Color (255,0,0,200));
 	Pinit();
 }
 
@@ -57,6 +58,9 @@ void Personnage::deplacement()
 			_animCount = 0;
 		_position += _velocite;
 	
+		_rectangle.setPosition(_sprite.getPosition());
+		_rectangle.setSize(sf::Vector2f(anim[_pos1].at(_animCount)._body.width, anim[_pos1].at(_animCount)._body.height));
+
 		_sprite.setTextureRect(anim[_pos1].at(_animCount)._carre);
 
 		_sprite.setOrigin(anim[_pos1].at(_animCount)._decale);
@@ -71,8 +75,14 @@ void Personnage::deplacement()
 		}
 		else
 		{
-			_rectangle.setPosition( _position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
+			_rectangle.setPosition(_sprite.getPosition());
+			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
 			_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
+			
+			_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.left, animAtt[_pos1].at(_animAtt)._sword.top));
+			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
+			_sword.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.width, animAtt[_pos1].at(_animAtt)._sword.height));
+
 			_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
 			_sprite.setOrigin(animAtt[_pos1].at(_animAtt)._decale);
 			_sprite.setPosition(_position);
@@ -153,8 +163,8 @@ void Personnage::lectureAttaque(string nomFichier[])
 					>> swordTop >> swordWidth >> swordHeight;
 			bodyLeft -= left;
 			bodyTop -= top;
-			swordLeft -= left;
-			swordTop -= top;
+			swordLeft -= left + decalex;
+			swordTop -= top + decaley;
 			animAtt[nb].push_back(allo(numero, sf::IntRect (left, top, width, height) 
 				, sf::Vector2f (decalex, decaley), sf::FloatRect(bodyLeft, bodyTop, bodyWidth, bodyHeight)
 				, sf::FloatRect (swordLeft, swordTop, swordWidth, swordHeight)));

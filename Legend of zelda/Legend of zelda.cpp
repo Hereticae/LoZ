@@ -59,6 +59,7 @@ int main()
         // Draw the sprite
         window.draw(Link._sprite);
 		window.draw(Link._rectangle);
+		window.draw(Link._sword);
         // Update the window
         window.display();
     }
