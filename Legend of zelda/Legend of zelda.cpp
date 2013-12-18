@@ -56,21 +56,15 @@ int main()
             if (event.type == sf::Event::Closed)
                 window->close();
         }
-		Link.deplacement(monstres, vue, window);
-		vue.deplacement(Link);
+		
 		//vue.collisionMur(Link);
         // Clear screen
         window->clear();
 		window->setView(vue._vue);
 		window->draw(vue._sprite);
-        // Draw the sprite
 
-        window->draw(Link.getSprite());
-		window->draw(Link.getRect());
-		window->draw(Link.getSword());
-
-        // Update the window
-        window->display();
+		Link.deplacement(monstres, vue, window);
+		vue.deplacement(Link);
     }
 	delete window;
     return EXIT_SUCCESS;

@@ -33,23 +33,19 @@ void carte::deplacement(Personnage &perso)
 	if(!(perso.getPosition().x > ( _vue.getCenter().x - ((_vue.getSize().x/2) - 10))))
 	{
 		_vue.move(sf::Vector2f(-3,0));
-		cout << "Gauche" << endl;
 	}
 	if(!(perso.getPosition().x < ( _vue.getCenter().x + ((_vue.getSize().x/2) - 26))))
 	{
 		_vue.move(sf::Vector2f(3,0));
-		cout << "Droite" << endl;
 	}
 
 	if(!(perso.getPosition().y > ( _vue.getCenter().y - ((_vue.getSize().y/2) - 10))))
 	{
 		_vue.move(sf::Vector2f(0,-3));
-		cout << "Haut" << endl;
 	}
 	if(!(perso.getPosition().y < ( _vue.getCenter().y + ((_vue.getSize().y/2) - 30))))
 	{
 		_vue.move(sf::Vector2f(0,3));
-		cout << "Bas" << endl;
 	}
 
 }

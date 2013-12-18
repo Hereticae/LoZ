@@ -14,7 +14,7 @@ Personnage::Personnage()
 	_direction = _animCount = _animAtt = _flecheTiree = 0;
 	keyUsed1 = keyUsed2 = _attaque = false;
 	_rectangle.setFillColor(sf::Color (0,255,255, 153));
-	_sword.setFillColor(sf::Color (255,0,0,200));
+	_sword.setFillColor(sf::Color (255,0,0,0));
 	arc = NULL;
 	Pinit();
 }
@@ -91,15 +91,18 @@ void Personnage::deplacement(list<monster> &m, carte &map, sf::RenderWindow *win
 		_sword.setPosition(sf::Vector2f(0,0));			
 		_sword.setSize(sf::Vector2f(0,0));
 
-		window->draw(_sprite);
-		window->draw(_rectangle);
+		
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::X))
 			tirer(m, map, window);
 	}
 	else
 		attaque();
-	
+
+	window->draw(_sprite);
+	window->draw(_sword);
+	//window->draw(_rectangle);
+	window->display();
 }
 
 void Personnage::attaque()
@@ -220,7 +223,7 @@ void moveArrow(fleche f)
 {
 	do
 	{
-		f._arrow->move();
+		f._arrow->move(f._window);
 	}while(!f._arrow->hit(f._monster, f._carte));
 	delete f._arrow;
 	f._perso->flecheTouche();

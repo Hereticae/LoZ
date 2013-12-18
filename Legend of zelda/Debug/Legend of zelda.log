@@ -1,42 +1,9 @@
-﻿Build started 2013-12-18 04:32:34.
-     1>Project "C:\Users\Hereticae\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Debug\Legend of zelda.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\SFML-2.1\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Personnage.cpp
-         Personnage.cpp
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.h(36): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.h(36): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.h(36): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.h(36): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(196): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(196): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(196): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(196): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(196): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(196): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(197): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(197): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(197): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hereticae\documents\github\loz\legend of zelda\personnage.cpp(197): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Hereticae\Documents\GitHub\LoZ\Debug\Legend of zelda.exe" /NOLOGO /LIBPATH:"C:\SFML-2.1\lib" "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Legend of zelda.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Hereticae\Documents\GitHub\LoZ\Debug\Legend of zelda.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Hereticae\Documents\GitHub\LoZ\Debug\Legend of zelda.lib" /MACHINE:X86 Debug\arrow.obj
-         Debug\Entite.obj
-         "Debug\Legend of zelda.obj"
-         Debug\Map.obj
-         Debug\monster.obj
-         Debug\Personnage.obj
-         LINK : C:\Users\Hereticae\Documents\GitHub\LoZ\Debug\Legend of zelda.exe not found or not built by the last incremental link; performing full link
-         Legend of zelda.vcxproj -> C:\Users\Hereticae\Documents\GitHub\LoZ\Debug\Legend of zelda.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Hereticae\Documents\GitHub\LoZ\Debug\Legend of zelda.exe;#1" /manifest "Debug\Legend of zelda.exe.intermediate.manifest"
-       FinalizeBuildStatus:
-         Deleting file "Debug\Legend of zelda.unsuccessfulbuild".
-         Touching "Debug\Legend of zelda.lastbuildstate".
-     1>Done Building Project "C:\Users\Hereticae\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" (build target(s)).
+﻿Build started 2013-12-18 05:39:19.
+     1>Project "C:\Users\Hereticae\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" on node 2 (clean target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\Legend of zelda.lastbuildstate".
+     1>Done Building Project "C:\Users\Hereticae\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" (clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.08
+Time Elapsed 00:00:00.01

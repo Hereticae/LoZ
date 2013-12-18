@@ -4,6 +4,7 @@
 #include "class.h"
 #include "monster.h"
 #include "Map.h"
+#include <fstream>
 
 
 ////////////////////////////////////////////////
@@ -20,10 +21,10 @@ protected:
 	int	_direction;
 
 	sf::IntRect			_rectangle;
+	sf::RectangleShape  _rect;
 	sf::Image			_img;
 	sf::Texture			_texture;
 	sf::Sprite			_sprite;
-	sf::RenderWindow*	_window;
 	
 	arrow();
 public:
@@ -32,6 +33,6 @@ public:
 	
 	sf::Vector2f getPosition();
 	
-	void move();
+	void move(sf::RenderWindow* window);
 	bool hit(list<monster> *m, carte *c);
 };
