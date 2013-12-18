@@ -11,7 +11,7 @@
 
 Personnage::Personnage()
 {
-	_direction = _animCount = _animAtt = 0;
+	_direction = _animCount = _animAtt = _flecheTiree = 0;
 	keyUsed1 = keyUsed2 = _attaque = false;
 	_rectangle.setFillColor(sf::Color (0,255,255, 153));
 	_sword.setFillColor(sf::Color (255,0,0,200));
@@ -23,16 +23,18 @@ Personnage::~Personnage()
 {
 	if(arc!=NULL)
 	{
-		arc->wait();
 		delete arc;
 		arc = NULL;
-		delete tiree._arrow;
+		if(tiree._arrow!=NULL)
+			delete tiree._arrow;
 	}
 }
 
-void Personnage::deplacement()
+void Personnage::deplacement(list<monster> &m, carte &map, sf::RenderWindow *window)
 {
 	_velocite = sf::Vector2f();
+	sf::Vector2f destination = _position;
+
 	if(_attaque == false)
 	{
 		if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
@@ -40,26 +42,35 @@ void Personnage::deplacement()
 		{
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
-				bouge( 3, sf::Vector2f(3,0));
+				destination.x+=2;
+				if(!map.collisionMur(destination,17,22))
+					bouge( 3, sf::Vector2f(2,0));
 			}
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			{
-				bouge( 1, sf::Vector2f(-3,0));
+				destination.x-=2;
+				if(!map.collisionMur(destination,17,22))
+					bouge( 1, sf::Vector2f(-2,0));
+
 			}
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 			{
-				bouge( 2, sf::Vector2f(0,-3));
+				destination.y-=2;
+				if(!map.collisionMur(destination,17,22))
+					bouge( 2, sf::Vector2f(0,-2));
 			}
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 			{
-				bouge( 0, sf::Vector2f(0,3));
+				destination.y+=2;
+				if(!map.collisionMur(destination,17,22))
+					bouge( 0, sf::Vector2f(0,2));
 			}
 			_animCount++;
 		}
 		else
 			keyUsed1 = keyUsed2 = false;
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 		{
 			_attaque = true;
 		}
@@ -80,7 +91,11 @@ void Personnage::deplacement()
 		_sword.setPosition(sf::Vector2f(0,0));			
 		_sword.setSize(sf::Vector2f(0,0));
 
-		
+		window->draw(_sprite);
+		window->draw(_rectangle);
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+			tirer(m, map, window);
 	}
 	else
 		attaque();
@@ -121,6 +136,7 @@ void Personnage::tirer(list<monster> &m, carte &c, sf::RenderWindow* window)
 		tiree._window = window;
 
 		arc = new sf::Thread(moveArrow, tiree);
+		arc->launch();
 		_flecheTiree = 1;
 	}
 }
@@ -188,9 +204,6 @@ void Personnage::lectureAttaque(string nomFichier[])
 void Personnage::flecheTouche()
 {
 	_flecheTiree = 0;
-
-	delete arc;
-	arc = NULL;
 }
 
 sf::RectangleShape Personnage::getRect()const
@@ -208,7 +221,7 @@ void moveArrow(fleche f)
 	do
 	{
 		f._arrow->move();
-	}while(f._arrow->hit(f._monster, f._carte));
+	}while(!f._arrow->hit(f._monster, f._carte));
 	delete f._arrow;
 	f._perso->flecheTouche();
 }

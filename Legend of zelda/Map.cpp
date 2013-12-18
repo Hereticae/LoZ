@@ -15,8 +15,6 @@ carte::carte()
 
 carte::~carte()
 {
-
-
 }
 
 
@@ -56,13 +54,13 @@ void carte::deplacement(Personnage &perso)
 
 }
 
-void carte::collisionMur(Personnage &perso)
+bool carte::collisionMur(const sf::Vector2f &point, int largeur, int hauteur)
 {
-	if(sf::Color (255,0,128) == _imageWall.getPixel(perso.getPosition().x, perso.getPosition().y))
-		cout << "allllo" << endl;
-	else
-		cout << "Bye bye" << endl;
+	bool topLeft = sf::Color (255,0,128) == _imageWall.getPixel(point.x, point.y),
+		 topRight = sf::Color (255,0,128) == _imageWall.getPixel(point.x+largeur, point.y),
+		 downLeft = sf::Color (255,0,128) == _imageWall.getPixel(point.x, point.y+hauteur),
+		 downRight = sf::Color (255,0,128) == _imageWall.getPixel(point.x+largeur, point.y+hauteur);
 
-
+	return (topLeft || topRight || downLeft || downRight);
 
 }

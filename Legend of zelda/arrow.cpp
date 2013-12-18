@@ -1,4 +1,5 @@
 #include "arrow.h"
+#include <iostream>
 
 arrow::arrow(sf::Vector2f position, int direction)
 {

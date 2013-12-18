@@ -30,7 +30,7 @@ public:
 	void init();
 	
 	void deplacement(Personnage &perso);
-	void collisionMur(Personnage &perso);
+	bool collisionMur(const sf::Vector2f &point, int largeur, int hauteur);
 
 
 

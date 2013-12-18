@@ -81,7 +81,7 @@ public:
 	Personnage();
 	~Personnage();
 
-	void deplacement();
+	void deplacement(list<monster> &m, carte &map, sf::RenderWindow *window);
 	void attaque();
 	void tirer(list<monster> &m, carte &c, sf::RenderWindow *window);
 	void bouge(int pos, sf::Vector2f vecteur);

@@ -8,12 +8,17 @@
 #pragma once
 #include "class.h"
 #include "Map.h"
+#include "Personnage.h"
+#include "monster.h"
+
+#include<list>
 
 using namespace std;
 
 int main()
 {
 	Personnage Link;
+	list<monster> monstres;
 	// Create the main window
     sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(800, 600), "Legend of Zelda");
 	
@@ -51,9 +56,9 @@ int main()
             if (event.type == sf::Event::Closed)
                 window->close();
         }
-		Link.deplacement();
+		Link.deplacement(monstres, vue, window);
 		vue.deplacement(Link);
-		vue.collisionMur(Link);
+		//vue.collisionMur(Link);
         // Clear screen
         window->clear();
 		window->setView(vue._vue);
