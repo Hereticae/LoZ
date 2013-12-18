@@ -42,6 +42,7 @@ void Personnage::deplacement()
 			{
 				bouge( 0, sf::Vector2f(0,3));
 			}
+			_animCount++;
 		}
 		else
 			keyUsed1 = keyUsed2 = false;
@@ -50,46 +51,27 @@ void Personnage::deplacement()
 		{
 			_attaque = true;
 		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			_animCount++;
-		}
+
 		if(_animCount >= 12)
 			_animCount = 0;
 		_position += _velocite;
 	
-		_rectangle.setPosition(_sprite.getPosition());
-		_rectangle.setSize(sf::Vector2f(anim[_direction].at(_animCount)._body.width, anim[_direction].at(_animCount)._body.height));
-
 		_sprite.setTextureRect(anim[_direction].at(_animCount)._carre);
 		_sprite.setTextureRect(anim[_direction].at(_animCount)._carre);
 
 		_sprite.setOrigin(anim[_direction].at(_animCount)._decale);
 		_sprite.setPosition(_position);
+		
+		_rectangle.setPosition(_sprite.getPosition());
+		_rectangle.setSize(sf::Vector2f(anim[_direction].at(_animCount)._body.width, anim[_direction].at(_animCount)._body.height));
+
+		_sword.setPosition(sf::Vector2f(0,0));			
+		_sword.setSize(sf::Vector2f(0,0));
+
+		
 	}
 	else
-	{
-		if(_animAtt >= 6)
-		{
-			_animAtt = 0;
-			_attaque = false;
-		}
-		else
-		{
-
-			_rectangle.setPosition(_sprite.getPosition());
-			_rectangle.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._body.width, animAtt[_direction].at(_animAtt)._body.height));
-			
-			_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_direction].at(_animAtt)._sword.left, animAtt[_direction].at(_animAtt)._sword.top));			
-			_sword.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._sword.width, animAtt[_direction].at(_animAtt)._sword.height));
-
-			_sprite.setTextureRect(animAtt[_direction].at(_animAtt)._carre);
-			_sprite.setOrigin(animAtt[_direction].at(_animAtt)._decale);
-
-			_sprite.setPosition(_position);
-			_animAtt++;
-		}
-	}
+		attaque();
 	
 }
 
@@ -102,16 +84,18 @@ void Personnage::attaque()
 	}
 	else
 	{
-		_rectangle.setPosition(animAtt[_direction].at(_animAtt)._body.left, animAtt[_direction].at(_animAtt)._body.top);
-		_rectangle.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._body.width, animAtt[_direction].at(_animAtt)._body.height));
 		_sprite.setTextureRect(animAtt[_direction].at(_animAtt)._carre);
 		_sprite.setOrigin(animAtt[_direction].at(_animAtt)._decale);
 		_sprite.setPosition(_position);
+
+		_rectangle.setPosition(_sprite.getPosition());
+		_rectangle.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._body.width, animAtt[_direction].at(_animAtt)._body.height));
+			
+		_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_direction].at(_animAtt)._sword.left, animAtt[_direction].at(_animAtt)._sword.top));			
+		_sword.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._sword.width, animAtt[_direction].at(_animAtt)._sword.height));
+
 		_animAtt++;
 	}
-
-
-
 }
 
 
