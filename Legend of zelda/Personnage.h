@@ -8,6 +8,7 @@
 
 #pragma once
 #include "Entite.h"
+//#include "monster.h"
 #include <vector>
 #include <fstream>
 
@@ -55,11 +56,15 @@ class Personnage : public Entite
 
 	bool	keyUsed1,
 			keyUsed2,
-			_attaque;
+			_attaque,
+			_flecheTiree;
+
 	vector<allo> anim[4],
 				 animAtt[4];
 
 	sf::RectangleShape _rectangle;
+
+	sf::Thread arc;
 
 	Personnage();
 
