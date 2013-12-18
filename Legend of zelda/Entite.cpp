@@ -23,7 +23,7 @@ void Entite::init(sf::Image img, sf::IntRect rect, sf::Vector2f position, int li
 	_sprite.setTexture(_texture);
 	_sprite.setTextureRect(rect);
 	_sprite.setScale(1,1);
-	_sprite.setPosition(position);
+	_position = position;
 	_maxLife = life;
 	_direction = direction;
 }
@@ -36,6 +36,11 @@ int Entite::getLife()const
 sf::Vector2f Entite::getPosition()const
 {
 	return _position;
+}
+
+sf::Vector2f Entite::getVelocite()const
+{
+	return _velocite;
 }
 
 sf::Image& Entite::getImage()

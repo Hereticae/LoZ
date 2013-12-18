@@ -35,6 +35,8 @@ public:
 
 	int getLife()const;
 	sf::Vector2f getPosition()const;
+	sf::Vector2f getVelocite()const;
+
 	sf::Image& getImage();
 	sf::Sprite getSprite()const;
 

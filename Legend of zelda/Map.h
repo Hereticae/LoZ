@@ -22,10 +22,15 @@ public:
 	carte();
 	~carte();
 	sf::View _vue;
+	sf::Texture _textureMap;
 
+	sf::Image	_imageWall;
+
+	sf::Sprite	_sprite;
 	void init();
-	//void deplacement(Personnage &perso);
-
+	
+	void deplacement(Personnage &perso);
+	void collisionMur(Personnage &perso);
 
 
 
