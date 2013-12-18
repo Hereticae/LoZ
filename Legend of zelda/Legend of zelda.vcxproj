@@ -68,6 +68,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="arrow.cpp" />
     <ClCompile Include="Entite.cpp" />
     <ClCompile Include="Legend of zelda.cpp" />
     <ClCompile Include="Map.cpp" />

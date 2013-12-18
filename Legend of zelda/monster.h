@@ -15,7 +15,5 @@ public:
 	monster();
 	~monster();
 	
-	void move(int direction,
-		const carte &c,
-		const Personnage &j);
+	int hit(int direction, const carte &c, const Personnage &j);
 };

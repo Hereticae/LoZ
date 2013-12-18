@@ -10,8 +10,12 @@
 #include "class.h"
 #include "Entite.h"
 #include "monster.h"
+#include "arrow.h"
 #include <vector>
 #include <fstream>
+
+
+#include <list>
 
 using namespace std;
 
@@ -43,6 +47,14 @@ struct animation
 	}
 };
 
+struct fleche
+{
+	arrow *_arrow;
+	Personnage *_perso;
+	list<monster> *_monster;
+	carte *_carte;
+};
+
 
 class Personnage : public Entite
 {
@@ -61,24 +73,25 @@ protected:
 	sf::RectangleShape	_rectangle,
 						_sword;
 
-	//sf::Thread arc;
+	sf::Thread *arc;
+	fleche tiree;
 
 public:
 	Personnage();
+	~Personnage();
 
 	void deplacement();
 	void attaque();
-	void tirer();
+	void tirer(list<monster> &m, carte &c);
 	void bouge(int pos, sf::Vector2f vecteur);
 
 	void Pinit();
 	void lectureDeplacement(string nomFichier[]);
 	void lectureAttaque(string nomFichier[]);
+	void flecheTouche();
 
 	sf::RectangleShape getRect()const;
 	sf::RectangleShape getSword()const;
-	//get
-
-
-
 };
+
+void moveArrow(fleche f);

@@ -15,7 +15,19 @@ Personnage::Personnage()
 	keyUsed1 = keyUsed2 = _attaque = false;
 	_rectangle.setFillColor(sf::Color (0,255,255, 153));
 	_sword.setFillColor(sf::Color (255,0,0,200));
+	arc = NULL;
 	Pinit();
+}
+
+Personnage::~Personnage()
+{
+	if(arc!=NULL)
+	{
+		arc->wait();
+		delete arc;
+		arc = NULL;
+		delete tiree._arrow;
+	}
 }
 
 void Personnage::deplacement()
@@ -98,6 +110,19 @@ void Personnage::attaque()
 	}
 }
 
+void Personnage::tirer(list<monster> &m, carte &c)
+{
+	if(!_flecheTiree)
+	{
+		tiree._arrow = new arrow(_position, _direction);
+		tiree._perso = this;
+		tiree._carte = &c;
+		tiree._monster = &m;
+
+		arc = new sf::Thread(moveArrow, tiree);
+		_flecheTiree = 1;
+	}
+}
 
 void Personnage::bouge(int pos, sf::Vector2f vecteur)
 {
@@ -159,6 +184,14 @@ void Personnage::lectureAttaque(string nomFichier[])
 	
 }
 
+void Personnage::flecheTouche()
+{
+	_flecheTiree = 0;
+
+	delete arc;
+	arc = NULL;
+}
+
 sf::RectangleShape Personnage::getRect()const
 {
 	return _rectangle;
@@ -167,6 +200,16 @@ sf::RectangleShape Personnage::getRect()const
 sf::RectangleShape Personnage::getSword()const
 {
 	return _sword;
+}
+
+void moveArrow(fleche f)
+{
+	do
+	{
+		f._arrow->move();
+	}while(f._arrow->hit(f._monster, f._carte));
+	delete f._arrow;
+	f._perso->flecheTouche();
 }
 
 /*if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))

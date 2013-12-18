@@ -16,23 +16,16 @@ using namespace std;
 class arrow
 {
 protected:
-	struct point
-	{
-		float x,
-			  y;
-	};
-
+	sf::Vector2f _position;
 	int	_direction;
-		
-	point _coord;
 	
 	arrow();
 public:
-	arrow(int x, int y, int direction);
+	arrow(sf::Vector2f position, int direction);
 	~arrow();
 	
-	point getPosition();
+	sf::Vector2f getPosition();
 	
-	void move(int direction);
-	bool hit(list<monster> m, carte c);
+	void move();
+	bool hit(list<monster> *m, carte *c);
 };
