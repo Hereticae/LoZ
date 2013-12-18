@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿La génération a démarré 2013-12-17 23:52:28.
      1>Projet "C:\Users\Maxime\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" sur le nœud 2 (build cible(s)).
      1>InitializeBuildStatus:
@@ -23,6 +24,8 @@
      1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(176): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
      1>c:\users\maxime\documents\github\loz\legend of zelda\personnage.cpp(176): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
 =======
+=======
+>>>>>>> 8d45b0cb5b6ddcf26fda9e1720d36b77c1850798
 ﻿Build started 2013-12-17 23:54:38.
      1>Project "C:\Users\Hereticae\Documents\GitHub\LoZ\Legend of zelda\Legend of zelda.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
@@ -71,9 +74,12 @@
          Debug\Map.obj
          Debug\Personnage.obj
 <<<<<<< HEAD
+<<<<<<< HEAD
          LINK : C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
          Legend of zelda.vcxproj -> C:\Users\Maxime\Documents\GitHub\LoZ\Debug\Legend of zelda.exe
 =======
+=======
+>>>>>>> 8d45b0cb5b6ddcf26fda9e1720d36b77c1850798
          Legend of zelda.vcxproj -> C:\Users\Hereticae\Documents\GitHub\LoZ\Debug\Legend of zelda.exe
 >>>>>>> refs/heads/max
        Manifest:
@@ -86,7 +92,11 @@
 La génération a réussi.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Temps écoulé 00:00:01.79
 =======
 Time Elapsed 00:00:02.85
 >>>>>>> refs/heads/max
+=======
+Time Elapsed 00:00:02.85
+>>>>>>> 8d45b0cb5b6ddcf26fda9e1720d36b77c1850798
