@@ -1,0 +1,13 @@
+Fleche
+
+Haut
+0	0	5	15
+
+Droite
+0	15	15	5
+
+Bas
+0	30	5	15
+
+Gauche
+0	45	15	5

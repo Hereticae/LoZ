@@ -1,4 +1,5 @@
 #pragma once
+
 class Entite;
 class Personnage;
 class monster;

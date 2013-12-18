@@ -6,17 +6,18 @@
 			 													   *
  *******************************************************************/
 #pragma once
+#include "class.h"
 #include "Map.h"
 
 using namespace std;
-
 
 int main()
 {
 	Personnage Link;
 	// Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Legend of Zelda");
-	window.setFramerateLimit(60);
+    sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(800, 600), "Legend of Zelda");
+	
+	window->setFramerateLimit(60);
     // Load a sprite to display
 	sf::Image map;
 	sf::Texture textMap;
@@ -40,31 +41,32 @@ int main()
 	//Link._sprite.setScale(2,2);
 	//Link._sprite.set
     // Start the game loop
-    while (window.isOpen())
+    while (window->isOpen())
     {
         // Process events
         sf::Event event;
-        while (window.pollEvent(event))
+        while (window->pollEvent(event))
         {
             // Close window : exit
             if (event.type == sf::Event::Closed)
-                window.close();
+                window->close();
         }
 		Link.deplacement();
 		vue.deplacement(Link);
 		vue.collisionMur(Link);
         // Clear screen
-        window.clear();
-		window.setView(vue._vue);
-		window.draw(vue._sprite);
+        window->clear();
+		window->setView(vue._vue);
+		window->draw(vue._sprite);
         // Draw the sprite
 
-        window.draw(Link.getSprite());
-		window.draw(Link.getRect());
-		window.draw(Link.getSword());
+        window->draw(Link.getSprite());
+		window->draw(Link.getRect());
+		window->draw(Link.getSword());
 
         // Update the window
-        window.display();
+        window->display();
     }
+	delete window;
     return EXIT_SUCCESS;
 }

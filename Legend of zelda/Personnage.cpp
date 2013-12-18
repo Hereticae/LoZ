@@ -110,7 +110,7 @@ void Personnage::attaque()
 	}
 }
 
-void Personnage::tirer(list<monster> &m, carte &c)
+void Personnage::tirer(list<monster> &m, carte &c, sf::RenderWindow* window)
 {
 	if(!_flecheTiree)
 	{
@@ -118,6 +118,7 @@ void Personnage::tirer(list<monster> &m, carte &c)
 		tiree._perso = this;
 		tiree._carte = &c;
 		tiree._monster = &m;
+		tiree._window = window;
 
 		arc = new sf::Thread(moveArrow, tiree);
 		_flecheTiree = 1;

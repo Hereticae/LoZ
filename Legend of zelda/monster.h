@@ -12,8 +12,7 @@ using namespace std;
 class monster : public Entite
 {	
 public:
-	monster();
-	~monster();
-	
-	int hit(int direction, const carte &c, const Personnage &j);
+	void look(int direction, const carte &m, const Personnage &j);
+	void move(int direction, const carte &m, const Personnage &j);
+	int hit(const Personnage &j);
 };

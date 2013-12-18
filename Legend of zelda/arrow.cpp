@@ -18,7 +18,7 @@ sf::Vector2f arrow::getPosition()
 	
 void arrow::move()
 {
-
+	
 }
 
 bool arrow::hit(list<monster> *m, carte*c)

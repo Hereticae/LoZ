@@ -18,6 +18,12 @@ class arrow
 protected:
 	sf::Vector2f _position;
 	int	_direction;
+
+	sf::IntRect			_rectangle;
+	sf::Image			_img;
+	sf::Texture			_texture;
+	sf::Sprite			_sprite;
+	sf::RenderWindow*	_window;
 	
 	arrow();
 public:

@@ -72,6 +72,7 @@
     <ClCompile Include="Entite.cpp" />
     <ClCompile Include="Legend of zelda.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="monster.cpp" />
     <ClCompile Include="Personnage.cpp" />
   </ItemGroup>
   <ItemGroup>

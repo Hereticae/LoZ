@@ -53,6 +53,7 @@ struct fleche
 	Personnage *_perso;
 	list<monster> *_monster;
 	carte *_carte;
+	sf::RenderWindow *_window;
 };
 
 
@@ -82,7 +83,7 @@ public:
 
 	void deplacement();
 	void attaque();
-	void tirer(list<monster> &m, carte &c);
+	void tirer(list<monster> &m, carte &c, sf::RenderWindow *window);
 	void bouge(int pos, sf::Vector2f vecteur);
 
 	void Pinit();
