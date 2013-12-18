@@ -7,8 +7,9 @@
  *******************************************************************/
 
 #pragma once
+#include "class.h"
 #include "Entite.h"
-//#include "monster.h"
+#include "monster.h"
 #include <vector>
 #include <fstream>
 

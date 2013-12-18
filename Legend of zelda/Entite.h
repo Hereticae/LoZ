@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <assert.h>
+#include "class.h"
 
 using namespace std;
 

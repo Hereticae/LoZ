@@ -1,7 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "arrow.h"
+#include "class.h"
+#include "monster.h"
+#include "Map.h"
+
+
+////////////////////////////////////////////////
+#include <list>
+////////////////////////////////////////////////
 
 using namespace std;
 
@@ -19,13 +26,13 @@ protected:
 		
 	point _coord;
 	
-	item();
+	arrow();
 public:
-	item(int x, int y, int direction);
-	~item();
+	arrow(int x, int y, int direction);
+	~arrow();
 	
 	point getPosition();
 	
 	void move(int direction);
-	bool hit(list<monster> m, map m);
+	bool hit(list<monster> m, carte c);
 };

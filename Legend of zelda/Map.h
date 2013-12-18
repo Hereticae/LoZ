@@ -6,7 +6,8 @@
  *			 													   *
  *******************************************************************/
 
-
+#pragma once
+#include "class.h"
 #include "Personnage.h"
 
 using namespace std;
