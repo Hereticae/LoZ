@@ -45,14 +45,9 @@ struct allo
 
 class Personnage : public Entite
 {
-	public:
-	int _pos1,
-		_pos2,
-		_dep1,
-		_dep2,
-		_animCount,
-		_animAtt,
-		_damage;
+protected:
+	int _animCount,
+		_animAtt;
 
 	bool	keyUsed1,
 			keyUsed2,
@@ -67,6 +62,7 @@ class Personnage : public Entite
 
 	//sf::Thread arc;
 
+public:
 	Personnage();
 
 	void deplacement();
@@ -77,6 +73,8 @@ class Personnage : public Entite
 	void Pinit();
 	void lectureDeplacement(string nomFichier[]);
 	void lectureAttaque(string nomFichier[]);
+
+	sf::RectangleShape getRect()const;
 	//get
 
 

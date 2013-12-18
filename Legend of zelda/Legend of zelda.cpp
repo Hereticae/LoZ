@@ -26,15 +26,12 @@ int main()
 	textMap.loadFromImage(map);
 	spriteMap.setTexture(textMap);
 	spriteMap.setScale(1,1);
-    if (!Link._img.loadFromFile("Link necessaire.png"))
+    if (!Link.getImage().loadFromFile("Link necessaire.png"))
         return EXIT_FAILURE;
-	Link.init(Link._img, sf::IntRect(101,127,15,24), sf::Vector2f(0,0));
+	Link.init(Link.getImage(), sf::IntRect(101,127,15,24), sf::Vector2f(0,0),5,0);
 
-	sf::RectangleShape rectangle(sf::Vector2f(100,100));
-
-	rectangle.setFillColor(sf::Color::Magenta);
-	rectangle.setPosition(sf::Vector2f(200,200));
-
+	sf::RectangleShape rectangle;
+	
 	carte vue;
 	
 	//texture.loadFromImage(img);
@@ -55,21 +52,19 @@ int main()
         }
 		Link.deplacement();
 		//vue.deplacement(Link);
-
-		if(Link._rectangle.getGlobalBounds().intersects(rectangle.getGlobalBounds()))
-		{
-			rectangle.setPosition(rectangle.getPosition() + sf::Vector2f(10,10));
-		}
-		
-		// Clear screen
+        // Clear screen
         window.clear();
 		//window.setView(vue._vue);
 		window.draw(spriteMap);
         // Draw the sprite
+<<<<<<< HEAD
         window.draw(Link._sprite);
 		window.draw(Link._rectangle);
 		window.draw(Link._sword);
-		window.draw(rectangle);
+=======
+        window.draw(Link.getSprite());
+		window.draw(Link.getRect());
+>>>>>>> amélioration personnage et entite
         // Update the window
         window.display();
     }

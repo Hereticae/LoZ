@@ -8,13 +8,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <assert.h>
 
 using namespace std;
 
 
 class Entite
 {
-	public:
+protected:
 	sf::Vector2f	_velocite,
 					_position;
 	sf::IntRect		_rectangle;
@@ -22,8 +23,19 @@ class Entite
 	sf::Texture		_texture;
 	sf::Sprite		_sprite;
 
-	void init(sf::Image img, sf::IntRect, sf::Vector2f);
-	void setEntite(sf::Vector2f Position, sf::Vector2f origin, sf::IntRect carree);
+	int _maxLife,
+		_life,
+		_direction;
 
+public:
+	Entite();
+	Entite(sf::Image img, sf::IntRect rect, sf::Vector2f position, int life, int direction);
+	void init(sf::Image img, sf::IntRect rect, sf::Vector2f position, int life, int direction);
 
+	int getLife()const;
+	sf::Vector2f getPosition()const;
+	sf::Image& getImage();
+	sf::Sprite getSprite()const;
+
+	void reduceLife(int dmg);
 };

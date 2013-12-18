@@ -8,7 +8,15 @@
 
 #include "Entite.h"
 
-void Entite::init(sf::Image img, sf::IntRect rect, sf::Vector2f position)
+Entite::Entite()
+{}
+
+Entite::Entite(sf::Image img, sf::IntRect rect, sf::Vector2f position, int life, int direction)
+{
+	init(img, rect, position, life, direction);
+}
+
+void Entite::init(sf::Image img, sf::IntRect rect, sf::Vector2f position, int life, int direction)
 {
 	img.createMaskFromColor(sf::Color(0,128,128));
 	_texture.loadFromImage(img);
@@ -16,11 +24,33 @@ void Entite::init(sf::Image img, sf::IntRect rect, sf::Vector2f position)
 	_sprite.setTextureRect(rect);
 	_sprite.setScale(1,1);
 	_sprite.setPosition(position);
+	_maxLife = life;
+	_direction = direction;
 }
 
-void Entite::setEntite(sf::Vector2f position, sf::Vector2f origin, sf::IntRect carree)
+int Entite::getLife()const
 {
-	_sprite.setPosition(position);
-	_sprite.setOrigin(origin);
-	_sprite.setTextureRect(carree);
+	return _life;
+}
+
+sf::Vector2f Entite::getPosition()const
+{
+	return _position;
+}
+
+sf::Image& Entite::getImage()
+{
+	return _img;
+}
+
+sf::Sprite Entite::getSprite()const
+{
+	return _sprite;
+}
+
+void Entite::reduceLife(int dmg)
+{
+	assert(dmg > 0);
+
+	_life -= dmg;
 }

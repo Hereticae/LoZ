@@ -11,7 +11,7 @@
 
 Personnage::Personnage()
 {
-	_pos1 = _pos2  = _dep1 = _dep2 = _animCount = _animAtt = 0;
+	_direction = _animCount = _animAtt = 0;
 	keyUsed1 = keyUsed2 = _attaque = false;
 	_rectangle.setFillColor(sf::Color (0,255,255, 153));
 	_sword.setFillColor(sf::Color (255,0,0,200));
@@ -58,12 +58,16 @@ void Personnage::deplacement()
 			_animCount = 0;
 		_position += _velocite;
 	
+<<<<<<< HEAD
 		_rectangle.setPosition(_sprite.getPosition());
 		_rectangle.setSize(sf::Vector2f(anim[_pos1].at(_animCount)._body.width, anim[_pos1].at(_animCount)._body.height));
 
 		_sprite.setTextureRect(anim[_pos1].at(_animCount)._carre);
+=======
+		_sprite.setTextureRect(anim[_direction].at(_animCount)._carre);
+>>>>>>> amélioration personnage et entite
 
-		_sprite.setOrigin(anim[_pos1].at(_animCount)._decale);
+		_sprite.setOrigin(anim[_direction].at(_animCount)._decale);
 		_sprite.setPosition(_position);
 	}
 	else
@@ -75,14 +79,23 @@ void Personnage::deplacement()
 		}
 		else
 		{
+<<<<<<< HEAD
 			_rectangle.setPosition(_sprite.getPosition());
+			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
 			_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
 			
 			_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.left, animAtt[_pos1].at(_animAtt)._sword.top));
+			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
 			_sword.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.width, animAtt[_pos1].at(_animAtt)._sword.height));
 
 			_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
 			_sprite.setOrigin(animAtt[_pos1].at(_animAtt)._decale);
+=======
+			_rectangle.setPosition( _position + sf::Vector2f(animAtt[_direction].at(_animAtt)._body.left, animAtt[_direction].at(_animAtt)._body.top));
+			_rectangle.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._body.width, animAtt[_direction].at(_animAtt)._body.height));
+			_sprite.setTextureRect(animAtt[_direction].at(_animAtt)._carre);
+			_sprite.setOrigin(animAtt[_direction].at(_animAtt)._decale);
+>>>>>>> amélioration personnage et entite
 			_sprite.setPosition(_position);
 			_animAtt++;
 		}
@@ -99,14 +112,10 @@ void Personnage::attaque()
 	}
 	else
 	{
-		_rectangle.setPosition(_sprite.getPosition());
-		_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
-			
-		_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.left, animAtt[_pos1].at(_animAtt)._sword.top));
-		_sword.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.width, animAtt[_pos1].at(_animAtt)._sword.height));
-
-		_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
-		_sprite.setOrigin(animAtt[_pos1].at(_animAtt)._decale);
+		_rectangle.setPosition(animAtt[_direction].at(_animAtt)._body.left, animAtt[_direction].at(_animAtt)._body.top);
+		_rectangle.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._body.width, animAtt[_direction].at(_animAtt)._body.height));
+		_sprite.setTextureRect(animAtt[_direction].at(_animAtt)._carre);
+		_sprite.setOrigin(animAtt[_direction].at(_animAtt)._decale);
 		_sprite.setPosition(_position);
 		_animAtt++;
 	}
@@ -118,7 +127,7 @@ void Personnage::attaque()
 
 void Personnage::bouge(int pos, sf::Vector2f vecteur)
 {
-	_pos1 = pos;
+	_direction = pos;
 	//_animCount++;
 	_velocite += vecteur;
 
@@ -176,36 +185,39 @@ void Personnage::lectureAttaque(string nomFichier[])
 	
 }
 
-
+sf::RectangleShape Personnage::getRect()const
+{
+	return _rectangle;
+}
 
 /*if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		if(_pos1 == 4)
-			_pos1 = 3;
+		if(_direction == 4)
+			_direction = 3;
 		else if(_pos2 == 4)
 			_pos2 = 3;
 		_velocite += sf::Vector2f(3,0);
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		if(_pos1 == 4)
-			_pos1 = 1;
+		if(_direction == 4)
+			_direction = 1;
 		else if(_pos2 == 4)
 			_pos2 = 1;
 		_velocite += sf::Vector2f(-3,0);
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		if(_pos1 == 4)
-			_pos1 = 2;
+		if(_direction == 4)
+			_direction = 2;
 		else if(_pos2 == 4)
 			_pos2 = 2;
 		_velocite += sf::Vector2f(0,-3);
 	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		if(_pos1 == 4)
-			_pos1 = 0;
+		if(_direction == 4)
+			_direction = 0;
 		else if(_pos2 == 4)
 			_pos2 = 0;
 		_velocite += sf::Vector2f(0,3);
@@ -214,7 +226,7 @@ void Personnage::lectureAttaque(string nomFichier[])
 	if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up) 
 		|| sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)))
 	{
-		_pos1 = _pos2 = 4;
+		_direction = _pos2 = 4;
 		_velocite = sf::Vector2f();
 
 	}*/
