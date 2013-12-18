@@ -75,8 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrow.h" />
+    <ClInclude Include="class.h" />
     <ClInclude Include="Entite.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="monster.h" />
     <ClInclude Include="Personnage.h" />
   </ItemGroup>
   <ItemGroup>
