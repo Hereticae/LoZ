@@ -76,11 +76,9 @@ void Personnage::deplacement()
 		else
 		{
 			_rectangle.setPosition(_sprite.getPosition());
-			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
 			_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
 			
 			_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.left, animAtt[_pos1].at(_animAtt)._sword.top));
-			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
 			_sword.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.width, animAtt[_pos1].at(_animAtt)._sword.height));
 
 			_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
@@ -101,8 +99,12 @@ void Personnage::attaque()
 	}
 	else
 	{
-		_rectangle.setPosition(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top);
+		_rectangle.setPosition(_sprite.getPosition());
 		_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
+			
+		_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.left, animAtt[_pos1].at(_animAtt)._sword.top));
+		_sword.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.width, animAtt[_pos1].at(_animAtt)._sword.height));
+
 		_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
 		_sprite.setOrigin(animAtt[_pos1].at(_animAtt)._decale);
 		_sprite.setPosition(_position);

@@ -65,7 +65,7 @@ class Personnage : public Entite
 	sf::RectangleShape	_rectangle,
 						_sword;
 
-	sf::Thread arc;
+	//sf::Thread arc;
 
 	Personnage();
 
