@@ -21,14 +21,14 @@ int main()
 	sf::Image map;
 	sf::Texture textMap;
 	sf::Sprite spriteMap;
-	if (!map.loadFromFile("maptest.png"))
+	if (!map.loadFromFile("map.png"))
         return EXIT_FAILURE;
 	textMap.loadFromImage(map);
 	spriteMap.setTexture(textMap);
 	spriteMap.setScale(1,1);
     if (!Link.getImage().loadFromFile("Link necessaire.png"))
         return EXIT_FAILURE;
-	Link.init(Link.getImage(), sf::IntRect(101,127,15,24), sf::Vector2f(0,0),5,0);
+	Link.init(Link.getImage(), sf::IntRect(101,127,15,24), sf::Vector2f(250,250), 5,0);
 
 	sf::RectangleShape rectangle;
 	
@@ -51,11 +51,12 @@ int main()
                 window.close();
         }
 		Link.deplacement();
-		//vue.deplacement(Link);
+		vue.deplacement(Link);
+		vue.collisionMur(Link);
         // Clear screen
         window.clear();
-		//window.setView(vue._vue);
-		window.draw(spriteMap);
+		window.setView(vue._vue);
+		window.draw(vue._sprite);
         // Draw the sprite
 
         window.draw(Link.getSprite());
