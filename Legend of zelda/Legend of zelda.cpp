@@ -62,19 +62,8 @@ int main()
 		window.draw(Link.getRect());
 		window.draw(Link.getSword());
 
-        window.draw(Link.getSprite());
-		window.draw(Link.getRect());
-
         // Update the window
         window.display();
     }
     return EXIT_SUCCESS;
-
-
-
-
-
-
-
-
 }

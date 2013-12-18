@@ -74,6 +74,7 @@
     <ClCompile Include="Personnage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="arrow.h" />
     <ClInclude Include="Entite.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Personnage.h" />
