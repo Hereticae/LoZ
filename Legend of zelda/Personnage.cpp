@@ -58,14 +58,11 @@ void Personnage::deplacement()
 			_animCount = 0;
 		_position += _velocite;
 	
-<<<<<<< HEAD
 		_rectangle.setPosition(_sprite.getPosition());
-		_rectangle.setSize(sf::Vector2f(anim[_pos1].at(_animCount)._body.width, anim[_pos1].at(_animCount)._body.height));
+		_rectangle.setSize(sf::Vector2f(anim[_direction].at(_animCount)._body.width, anim[_direction].at(_animCount)._body.height));
 
-		_sprite.setTextureRect(anim[_pos1].at(_animCount)._carre);
-=======
 		_sprite.setTextureRect(anim[_direction].at(_animCount)._carre);
->>>>>>> amélioration personnage et entite
+		_sprite.setTextureRect(anim[_direction].at(_animCount)._carre);
 
 		_sprite.setOrigin(anim[_direction].at(_animCount)._decale);
 		_sprite.setPosition(_position);
@@ -79,23 +76,23 @@ void Personnage::deplacement()
 		}
 		else
 		{
-<<<<<<< HEAD
-			_rectangle.setPosition(_sprite.getPosition());
-			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
-			_rectangle.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.width, animAtt[_pos1].at(_animAtt)._body.height));
-			
-			_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.left, animAtt[_pos1].at(_animAtt)._sword.top));
-			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_pos1].at(_animAtt)._body.left, animAtt[_pos1].at(_animAtt)._body.top));
-			_sword.setSize(sf::Vector2f(animAtt[_pos1].at(_animAtt)._sword.width, animAtt[_pos1].at(_animAtt)._sword.height));
 
-			_sprite.setTextureRect(animAtt[_pos1].at(_animAtt)._carre);
-			_sprite.setOrigin(animAtt[_pos1].at(_animAtt)._decale);
-=======
+			_rectangle.setPosition(_sprite.getPosition());
+			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_direction].at(_animAtt)._body.left, animAtt[_direction].at(_animAtt)._body.top));
+			_rectangle.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._body.width, animAtt[_direction].at(_animAtt)._body.height));
+			
+			_sword.setPosition(_sprite.getPosition() + sf::Vector2f(animAtt[_direction].at(_animAtt)._sword.left, animAtt[_direction].at(_animAtt)._sword.top));
+			//_rectangle.setPosition(_position + sf::Vector2f(animAtt[_direction].at(_animAtt)._body.left, animAtt[_direction].at(_animAtt)._body.top));
+			_sword.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._sword.width, animAtt[_direction].at(_animAtt)._sword.height));
+
+			_sprite.setTextureRect(animAtt[_direction].at(_animAtt)._carre);
+			_sprite.setOrigin(animAtt[_direction].at(_animAtt)._decale);
+
 			_rectangle.setPosition( _position + sf::Vector2f(animAtt[_direction].at(_animAtt)._body.left, animAtt[_direction].at(_animAtt)._body.top));
 			_rectangle.setSize(sf::Vector2f(animAtt[_direction].at(_animAtt)._body.width, animAtt[_direction].at(_animAtt)._body.height));
 			_sprite.setTextureRect(animAtt[_direction].at(_animAtt)._carre);
 			_sprite.setOrigin(animAtt[_direction].at(_animAtt)._decale);
->>>>>>> amélioration personnage et entite
+
 			_sprite.setPosition(_position);
 			_animAtt++;
 		}
@@ -152,7 +149,7 @@ void Personnage::lectureDeplacement(string nomFichier[])
 		while(!entree.eof())
 		{
 			entree >> numero >> left >> top >> width >> height >> decalex >> decaley;
-			anim[nb].push_back(allo(numero, left, top, width, height, decalex, decaley));
+			anim[nb].push_back(animation(numero, left, top, width, height, decalex, decaley));
 		}
 		entree.close();
 	}
@@ -176,7 +173,7 @@ void Personnage::lectureAttaque(string nomFichier[])
 			bodyTop -= top;
 			swordLeft -= left + decalex;
 			swordTop -= top + decaley;
-			animAtt[nb].push_back(allo(numero, sf::IntRect (left, top, width, height) 
+			animAtt[nb].push_back(animation(numero, sf::IntRect (left, top, width, height) 
 				, sf::Vector2f (decalex, decaley), sf::FloatRect(bodyLeft, bodyTop, bodyWidth, bodyHeight)
 				, sf::FloatRect (swordLeft, swordTop, swordWidth, swordHeight)));
 		}
@@ -188,6 +185,11 @@ void Personnage::lectureAttaque(string nomFichier[])
 sf::RectangleShape Personnage::getRect()const
 {
 	return _rectangle;
+}
+
+sf::RectangleShape Personnage::getSword()const
+{
+	return _sword;
 }
 
 /*if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))

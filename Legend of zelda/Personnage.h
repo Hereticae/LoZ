@@ -14,14 +14,14 @@
 
 using namespace std;
 
-struct allo
+struct animation
 {
 	int _nb;
 	sf::IntRect _carre;
 	sf::Vector2f _decale;
 	sf::FloatRect _body,
 				_sword;
-	allo(int nb, int left, int top, int width, int height, int decalex, int decaley)
+	animation(int nb, int left, int top, int width, int height, int decalex, int decaley)
 	{
 		_nb = nb;
 		
@@ -32,7 +32,7 @@ struct allo
 		_sword = sf::FloatRect(0, 0, 0, 0);
 	}
 
-	allo(int nb, sf::IntRect carre, sf::Vector2f decale, sf::FloatRect body, sf::FloatRect sword = sf::FloatRect (0,0,0,0))
+	animation(int nb, sf::IntRect carre, sf::Vector2f decale, sf::FloatRect body, sf::FloatRect sword = sf::FloatRect (0,0,0,0))
 	{
 		_nb = nb;
 		_carre = carre;
@@ -54,7 +54,7 @@ protected:
 			_attaque,
 			_flecheTiree;
 
-	vector<allo> anim[4],
+	vector<animation> anim[4],
 				 animAtt[4];
 
 	sf::RectangleShape	_rectangle,
@@ -75,6 +75,7 @@ public:
 	void lectureAttaque(string nomFichier[]);
 
 	sf::RectangleShape getRect()const;
+	sf::RectangleShape getSword()const;
 	//get
 
 

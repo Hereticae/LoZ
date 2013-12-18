@@ -57,14 +57,14 @@ int main()
 		//window.setView(vue._vue);
 		window.draw(spriteMap);
         // Draw the sprite
-<<<<<<< HEAD
-        window.draw(Link._sprite);
-		window.draw(Link._rectangle);
-		window.draw(Link._sword);
-=======
+
         window.draw(Link.getSprite());
 		window.draw(Link.getRect());
->>>>>>> amélioration personnage et entite
+		window.draw(Link.getSword());
+
+        window.draw(Link.getSprite());
+		window.draw(Link.getRect());
+
         // Update the window
         window.display();
     }
